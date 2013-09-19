@@ -1,3 +1,4 @@
 #backbone js test
 * listing of Contacts - done
-* working on add contact functionality 
+* adding contact - done
+* working on edit and delete

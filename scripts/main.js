@@ -51,6 +51,10 @@
 			var view = new PersonView({model: person});
 			//this.contacts_list.append(view.render().el);
 			person.save();
+		},
+
+		clearInputs: function(){
+
 		}
 	});
 
