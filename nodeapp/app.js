@@ -46,7 +46,7 @@ var ObjectId = Schema.ObjectId;
 // Contacts schema
 var contactsSchema = new Schema({
   name: { type: String, required: true},
-  contactnum: { type: String, required: true},
+  number: { type: String, required: true},
   username: { type: String, required: true, unique: true},
 }, {collection: 'contacts'});
 
@@ -54,13 +54,16 @@ var contactsSchema = new Schema({
 var contactModel = mongoose.model('contacts', contactsSchema);
 
 app.get('/contacts', listContacts );
-// app.post('/', addContact );
+app.post('/contacts', addContact );
 // app.put('/:id', updateContact );
 // app.delete('/:id', deleteContact );
 
 function listContacts(req, res){
 	contactModel.find(function(err, data){
-		if(err) throw err;
+		if(err){
+      console.log(err);
+      res.send(500, err);
+    }
 		else{
 			console.log(data);			
 			res.send(data, 200);
@@ -68,9 +71,17 @@ function listContacts(req, res){
 	});
 }
 
-// function addContact(res, req){
-// 	contactModel.findOne({})
-// }
+function addContact(req, res){
+  console.log(req.body);
+  contactModel.create(req.body, function (err, doc) {
+    if (err) {
+      console.log(err);
+      res.send(500, err);
+    } else {
+      res.send(200, doc);
+    }
+  });
+}
 
 app.listen(9090, function() {
   console.log('Express server listening on port 9090');

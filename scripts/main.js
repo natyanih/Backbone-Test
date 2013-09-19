@@ -33,6 +33,7 @@
 			model.set("position", position);
 			var view = new PersonView({model: model});
 			this.contacts_list.append(view.render().el);
+
 		},
 
 
@@ -45,10 +46,11 @@
 			});
 
 			this.collection.add(person);
-			person.set("position", this.collection.length);
+			person.set("num", this.collection.length);
 
 			var view = new PersonView({model: person});
-			this.contacts_list.append(view.render().el);
+			//this.contacts_list.append(view.render().el);
+			person.save();
 		}
 	});
 
