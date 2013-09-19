@@ -19,19 +19,20 @@
 		},
 
 		renderView: function(model){
-			var item = JSON.stringify(model);
+			//var item = JSON.stringify(model);
 
-			alert(item);
+			//alert(item);
 			//get values 
-			// var person = new PersonModel({
-			// 	name: 
-			// });
+			// model.set("num", this.collection.indexOf(model) + 1);
 
-			// person.set("num", this.collection.length);
-
-			// var view = new PersonView({model: person});
+			// var view = new PersonView({model: model});
 			// this.contacts_list.append(view.render().el);
 
+
+			position = this.collection.indexOf(model) + 1;
+			model.set("position", position);
+			var view = new PersonView({model: model});
+			this.contacts_list.append(view.render().el);
 		},
 
 
@@ -44,7 +45,7 @@
 			});
 
 			this.collection.add(person);
-			person.set("num", this.collection.length);
+			person.set("position", this.collection.length);
 
 			var view = new PersonView({model: person});
 			this.contacts_list.append(view.render().el);
@@ -64,7 +65,7 @@
 
 	var PersonCollection = Backbone.Collection.extend({
 		model: PersonModel,
-		url: 'http://localhost:9090/contacts',
+		url: 'http://localhost/contacts',
 		initialize: function () {
 
 		}
