@@ -65,7 +65,7 @@
 
 	var PersonCollection = Backbone.Collection.extend({
 		model: PersonModel,
-		url: 'http://localhost/contacts',
+		url: 'http://localhost:9090/contacts',
 		initialize: function () {
 
 		}
