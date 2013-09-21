@@ -5,7 +5,8 @@
 	var App = Backbone.View.extend({
 		el: "#contacts",
 		events: {
-			'click #add_contact': 'addPerson'
+			'click #add_contact': 'addPerson',
+			'click #delete_contact': 'deletePerson'
 		},
 		initialize: function () {
 			this.input_name = $('#inputs input[name=fullname]');
@@ -53,7 +54,7 @@
 			person.save();
 		},
 
-		clearInputs: function(){
+		deletePerson: function (model) {
 
 		}
 	});
