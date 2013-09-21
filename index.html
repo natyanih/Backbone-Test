@@ -61,19 +61,7 @@
                 color: #09629E;
                 text-align: center;
             }
-            .done, .cancel {
-                cursor: pointer;
-                margin: 0px 10px;
-            }
-            .done:hover, .cancel:hover {
-                text-decoration: underline;
-            }
-            .done {
-                color: green;
-            }
-            .cancel {
-                color: gray;
-            }
+
         </style>
     </head>
     <body>
@@ -92,10 +80,11 @@
                     </thead>
                     <tbody>
                         <tr id="inputs">
-                            <td><button id="add_contact" data-toggle="tooltip" title="Save contact">+</button></td>
+                            <td><button id="add_contact" data-toggle="tooltip" title="Save Contact">+</button></td>
                             <td><input type="text" name="fullname"></td>
                             <td><input type="text" name="number"></td>
                             <td><input type="text" name="username"></td>
+                            <td></td>
                         </tr>
                         <tr>
 
@@ -110,14 +99,14 @@
         <td><%= name %></td>
         <td><%= number %></td>
         <td><%= username %></td>
-        <td class="controls"><a href="#" class="edit">Edit</a> | <a href="#" class="delete">Delete</a></td>
+        <td class="controls"><a href="#" class="edit btn btn-primary">Edit</a>&nbsp;<a href="#" class="delete btn btn-danger">Delete</a></td>
     </script>
     <script type="text/template" id="edit_mode_template">
         <td><%= position %></td>
-        <td><input type="text" name="fullname" value="<%= name %>"></td>
+        <td><input type="text" name="fullname" value="<%= name %>" id="fullnameedit"></td>
         <td><input type="text" name="number" value="<%= number %>"></td>
-        <td><input type="text" name="username" value="<%= username %>"></td>
-        <td class="confirmation"><span class="done">Done</span><span class="cancel">Cancel</span></td>
+        <td><input type="text" name="username" value="<%= username %>" id="usernameedit"></td>
+        <td class="confirmation"><button class="done btn btn-success">Done</button>&nbsp;<button class="cancel btn btn-warning">Cancel</button></td>
     </script>
     <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
